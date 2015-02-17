@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get '/login'     => 'sessions#new', as: :login
+  post '/login'    => 'sessions#create'
+  delete '/logout' => 'sessions#destroy', as: :logout
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
