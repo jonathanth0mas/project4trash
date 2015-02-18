@@ -4,9 +4,11 @@ class PickupsController < ApplicationController
   end
 
   def create
+    # pickup_parameters[:date] = Date.strptime(pickup_parameters[:date],
+    #                                             '%m/%d/%Y')
     @pickup = current_user.pickups.build(pickup_parameters)
      if @pickup.save
-       redirect_to users_path(current_user)
+       redirect_to user_path(current_user)
      else 
        render :new
      end    
