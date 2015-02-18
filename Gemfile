@@ -17,7 +17,8 @@ gem 'bootstrap-sass', '~> 3.3.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-
+gem 'jquery-ui-rails'
+gem 'better_errors', '~> 2.1.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'angular-rails-templates'
 gem 'active_model_serializers'

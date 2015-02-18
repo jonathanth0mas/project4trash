@@ -11,12 +11,28 @@
   		<option value="donate">Donate to this weeks charity of choice!</option>
   	</select>
 </header>
-	<h3>Currently Scheduled Pickup:</h3>
+	<h4>Currently Scheduled Pickup:</h4>
 	<div id="pickup-scheduler">
-		<form>
-	  		Schedule a Pickup: <input type="text"><br>
-	  		<input type="submit" value="Submit">
-		</form>
+			<%= form_for @pickup do |f| %>
+		<div>
+			<%= f.label :date %>
+			<%= f.text_field :date, id: "datepicker" %>
+		</div>		
+
+ 	<script>
+	  
+	  $(function() {
+	    $( "#datepicker" ).datepicker();
+	    minDate: 0
+	    dateFormat: 'dd-mm-YYYY'
+	  });
+	   
+	  </script>		
+
+
+
+	<%= f.submit "Submit these changes!" %>
+	<% end %>
 	</div>
 
 	<div id="confirmations">
