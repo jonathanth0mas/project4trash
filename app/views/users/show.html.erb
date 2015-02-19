@@ -12,8 +12,8 @@
   	</select>
 </header>
 	<h4>Currently Scheduled Pickup:</h4> 
-	<%= current_user.pickups.where(completed: false).each do | f | %>
-		<%= f.date %>
+	<% current_user.pickups.where(completed: false).each do | f | %>
+		<%= f.date.strftime("[%m|%d|%Y]") %>
 	<% end %>
 	<div id="pickup-scheduler">
 			<%= form_for @pickup do |f| %>
@@ -39,8 +39,8 @@
 
 	<div id="confirmations">
 	<strong>Previous Successful Pickups!</strong>
-	<%= current_user.pickups.where(completed: true).each do | f | %>
-		<%= f.date %>
+	<% current_user.pickups.where(completed: true).each do | f | %>
+		<%= f.date.strftime("[%m|%d|%Y]") %>
 	<% end %>
 		<table>
 		  <tr>
