@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218002331) do
+ActiveRecord::Schema.define(version: 20150219002625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150218002331) do
     t.datetime "updated_at"
     t.datetime "date"
     t.integer  "user_id"
+    t.boolean  "completed",  default: false
   end
 
   add_index "pickups", ["user_id"], name: "index_pickups_on_user_id", using: :btree
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150218002331) do
     t.integer  "debit_card_number"
     t.string   "password_digest"
     t.string   "email"
+    t.boolean  "admin",             default: false
   end
 
 end

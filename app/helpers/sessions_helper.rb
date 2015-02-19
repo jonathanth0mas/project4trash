@@ -4,6 +4,12 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def admin
+    if !current_user.admin
+      redirect_to user_path(current_user)
+    end
+  end
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by_id(session[:user_id])

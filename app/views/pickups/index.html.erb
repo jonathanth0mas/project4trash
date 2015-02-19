@@ -1,17 +1,27 @@
 <div id="admin-show">
 
 	<div class="container" id="pending">
-	<%= @pickups.inspect %>
-	<!-- iterate with each then make LI for each pickup -->
-		<li>User 1</li>
-		<li>User 2</li>
-		<li>User 3</li>
+	
+	<div>pending pickups</div>
+	<%= form_tag("/pickups/complete/", :method => "post") do %>
 
+		<ul>
+			<% @pending_pickups.each do |pickup| %>
+				<li><%= pickup.id %> <%= pickup.date %> <%= check_box_tag "pickups_check_box[]",pickup.id %> </li>
+			<% end %>
+		</ul>
+		<%= submit_tag("Complete Pickups", :class=>"btn btn-success") %>
+		<% end %>
 	</div>
 
 	<div class="container" id="completed">
-		<li>User 1 30$</li>
-		<li>User 2 20$</li>
+	
+	<div>completed pickups</div>
+		<ul>
+			<% @completed_pickups.each do |pickup| %>
+				<li><%= pickup.id %></li>
+			<% end %>
+		</ul>
 
 	</div>
 

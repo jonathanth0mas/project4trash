@@ -1,6 +1,11 @@
 class PickupsController < ApplicationController
+
+before_action :admin, only: [:index]
+
   def index
     @pickups = Pickup.all
+    @pending_pickups = Pickup.where(completed: false)
+    @completed_pickups = Pickup.where(completed: true)
   end
 
   def create
@@ -27,6 +32,16 @@ class PickupsController < ApplicationController
        render "edit"
      end
    end
+
+   def complete
+     params[:pickups_check_box].each do |check|
+       pickup_id = check
+     t = Pickup.find_by_id(pickup_id)
+         t.update_attribute(:completed, true)
+     end
+    redirect_to :action => 'index'
+
+   end  
 
 
   private
