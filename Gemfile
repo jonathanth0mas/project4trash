@@ -25,6 +25,7 @@ gem 'active_model_serializers'
 gem 'angularjs-rails'
 gem 'bcrypt'
 gem 'bower-rails'
+gem 'compliments'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
