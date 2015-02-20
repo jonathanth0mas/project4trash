@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :pickups
 
   get '/login'     => 'sessions#new', as: :login
-  post '/login'    => 'sessions#create'
+  post '/login'    => 'sessions#create', as: :create_login
   delete '/logout' => 'sessions#destroy', as: :logout
   match 'pickups/complete' => 'pickups#complete', :via => :post
 

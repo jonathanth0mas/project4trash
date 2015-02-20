@@ -11,6 +11,7 @@
   		<option value="donate">Donate to this weeks charity of choice!</option>
   	</select>
 </header>
+	<h4>Current Address: <%= link_to current_user.street , "https://www.google.com/maps/place/#{current_user.street.tr(" ", "+")}",:target => "_blank" %> </h4>
 	<h4>Currently Scheduled Pickup:</h4> 
 	<% current_user.pickups.where(completed: false).each do | f | %>
 		<%= f.date.strftime("[%m|%d|%Y]") %>
@@ -33,7 +34,7 @@
 
 
 
-	<%= f.submit "Submit these changes!" %>
+	<%= f.submit "Schedule!" %>
 	<% end %>
 	</div>
 
@@ -42,17 +43,7 @@
 	<% current_user.pickups.where(completed: true).each do | f | %>
 		<%= f.date.strftime("[%m|%d|%Y]") %>
 	<% end %>
-		<table>
-		  <tr>
-		    <th>Date</th>
-		    <th>Amount Earned</th>
-		  </tr>
-		  <tr>
-		    <td>4-20-15</td>
-		    <td>$100</td>
-		  </tr>
-		</table>
-
+		
 	</div>
 
 	<div id="charities">
@@ -67,3 +58,8 @@
 		  </tr>
 		</table>
 	</div>
+
+	<% if current_user.id == current_user.id %>
+		 
+		 <%= link_to "Delete my account that helps save the world", current_user, method: :delete, data: { confirm: "Are you sure you want to delete this user?" } %>
+	 <% end %>

@@ -1,0 +1,26 @@
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h3>Login</h3>
+
+		<%= form_for :login, :url => create_login_path do |f| %>
+
+			<div>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</div>
+
+
+			<div>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</div>
+
+			<div>
+				<%= f.submit "Sign In!" %>
+			</div>
+
+		<% end %>
+    </div>
+  </div>
+</div>

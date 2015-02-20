@@ -1,13 +1,11 @@
-	<header>
-		<%= render "shared/menu" %>
-	</header>
+<%= render "shared/menu" %>
 	
 		
 	
 	<div class="container row" class="main-block" >
 		<h1>TrVshio</h1>
-		<h3>"random recycling fact generator"</h3>
-		<%= link_to "Sign Up!", new_user_path %>
+		<h4 id="fact"> <strong>Fact:</strong> <%= @compliment %> </h4>
+		
 		<br/>
 		<br/>
 		<br/>
